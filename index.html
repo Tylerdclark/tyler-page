@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Website for Tyler Clark. He likes to code and is bad at descriptions">
+    <meta name="author" content="Tyler D Clark">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="static/main.css" <title>Tyler D Clark</title>
+    <script src="app.js"></script>
 </head>
+
 <body>
-    
+    <div class="flip">
+        <div class="card" id="card">
+            <div class="face front">
+                <img src="static/tylerFace.jpeg" alt="Flattering picture of Tyler">
+                <h1>Tyler D Clark</h1>
+                <p style="padding: 10px">Hello this is some text taking up some space. </p>
+                <p style="padding: 10px;padding-top:0px">This is some more text taking up space. </p>
+                <p><a href="#" onclick="flip()" class="btn">Send message</a>
+                    <a class="btn" href="https://github.com/Tylerdclark">View Github</a>
+                </p>
+            </div>
+            <div class="face back">
+                <h1>Contact me</h1>
+                <form action="" method="POST">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message"></textarea>
+                    <p style="text-align: center"><a href="#" onclick="unflip()" class="btn">Back</a> <input
+                            style="height: 40px;" type="submit" name="submit" value="Send message" class="btn"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="libraries/p5.js"></script>
+    <!-- <script src="libraries/p5.dom.js"></script> -->
+    <script src="sketch.js"
+
+
 </body>
+
 </html>
