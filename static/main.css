@@ -1,0 +1,163 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Code Pro", sans-serif;
+    font-weight: 400;
+    color: #2c3e50;
+    background: #3c0260;
+}
+div {
+    text-align: center;
+}
+h1 {
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.75rem;
+    font-family: "Source Code Pro", sans-serif;
+}
+a {
+    text-decoration: underline;
+    /*color: #c0392b;*/
+    color: #2c3e50;
+}
+img {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 100%;
+    display: block;
+}
+.alert {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+    animation: disappear 0.5s linear 2s 1;
+    animation-fill-mode: forwards;
+}
+@keyframes disappear {
+    0% {
+    }
+    100% {
+        height: 0px;
+        padding: 0px;
+        margin: 0px;
+        font-size: 0px;
+    }
+}
+.btn {
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    border-bottom: 4px solid #4b044b;
+    background: #a806ae;
+    padding: 8px;
+    font-size: 1rem;
+    /* height: 30px; */
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline;
+}
+.btn:active {
+    border-bottom: none;
+    position: relative;
+    top: 4px;
+}
+.spacer {
+    clear: both;
+    height: 10px;
+}
+label,
+input,
+textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+label {
+    margin-bottom: 5px;
+}
+input,
+textarea {
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #eee;
+}
+input:focus,
+textarea:focus {
+    border-bottom: 2px solid #ce23ce;
+}
+input[type="text"] {
+    height: 30px;
+    width: 100%;
+}
+textarea {
+    height: 100px;
+    width: 100%;
+}
+
+.flip {
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    /*width: 400px;*/
+    /*height: 400px;*/
+    width: 100%;
+    height: 400px;
+    max-width: 400px;
+    position: relative;
+    top: 10%;
+    margin: 0 auto;
+}
+.flip .card.flipped {
+    -webkit-transform: rotatey(-180deg);
+}
+.flip .card {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+}
+.flip .card .face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    z-index: 2;
+}
+.flip .card .front {
+    position: absolute;
+    z-index: 1;
+    /* style for front of card*/
+    background: #fff;
+    padding: 10px;
+    border-radius: 3px;
+}
+.flip .card .back {
+    -webkit-transform: rotatey(-180deg);
+    /* style for back of card */
+    background: #fff;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+@media only screen and (max-width: 480px) {
+    .flip .card .back,
+    .flip .card .front {
+        padding: 0px;
+        padding-top: 10px;
+    }
+    h1 {
+        font-size: 1.4rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+    }
+}
