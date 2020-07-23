@@ -99,6 +99,10 @@ input[type="text"] {
     height: 30px;
     width: 100%;
 }
+input[type="email"] {
+    height: 30px;
+    width: 100%;
+}
 textarea {
     height: 100px;
     width: 100%;
