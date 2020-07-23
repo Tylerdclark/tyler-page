@@ -63,6 +63,9 @@ img {
     cursor: pointer;
     display: inline;
 }
+#stop-btn {
+  background-color: red;
+}
 .btn:active {
     border-bottom: none;
     position: relative;
