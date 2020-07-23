@@ -1,9 +1,16 @@
-let rez = 20;
+let rez = 10;
 let cols, rows;
 let field = [];
+let increment = 0.15;
+const seed = Date.now();
+let zoff = 0;
+const openSimplex = openSimplexNoise(seed);
+
+p5.disableFriendlyErrors = true; // delete this line of code when using min
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    setup();
     //draw();
 }
 
@@ -14,13 +21,6 @@ function setup() {
 
     cols = 1 + width / rez;
     rows = 1 + height / rez;
-
-    for (let i = 0; i < cols; i++) {
-        field[i] = []; // create nested array
-        for (let j = 0; j < rows; j++) {
-            field[i][j] = floor(random(2));
-        }
-    }
 }
 
 function drawLine(v1, v2) {
@@ -28,13 +28,25 @@ function drawLine(v1, v2) {
 }
 
 function draw() {
+    clear(); //otherwise will draw on top of previous
+
+    let fps = frameRate();
+    fill(255);
+    stroke(0);
+    text("FPS: " + fps.toFixed(2), 10, height - 10);
+
+    let xoff = 0;
     for (let i = 0; i < cols; i++) {
+        field[i] = []; // create nested array
+        xoff += increment;
+        let yoff = 0;
         for (let j = 0; j < rows; j++) {
-            stroke(field[i][j] * 255);
-            strokeWeight(rez * 0.4);
-            point(i * rez, j * rez);
+            let n = openSimplex.noise3D(xoff, yoff, zoff);
+            field[i][j] = n;
+            yoff += increment;
         }
     }
+    zoff += map(fps, 5, 60, 0.005, 0.009);
 
     for (let i = 0; i < cols - 1; i++) {
         for (let j = 0; j < rows - 1; j++) {
@@ -47,13 +59,14 @@ function draw() {
             let d = new p5.Vector(x, y + rez * 0.5);
 
             let state = getState(
-                field[i][j],
-                field[i + 1][j],
-                field[i + 1][j + 1],
-                field[i][j + 1]
+                ceil(field[i][j]),
+                ceil(field[i + 1][j]),
+                ceil(field[i + 1][j + 1]),
+                ceil(field[i][j + 1])
             );
-            stroke(255);
-            strokeWeight(1);
+            colorMode(HSB, 255, 255, 255);
+            strokeWeight(4);
+            stroke(map(state, 0, 15, 0, 360), 200, 255, 255);
             switch (state) {
                 case 1:
                     drawLine(c, d);
@@ -65,7 +78,7 @@ function draw() {
                     drawLine(b, d);
                     break;
                 case 4:
-                    drawLine(a, b)
+                    drawLine(a, b);
                     break;
                 case 5:
                     drawLine(a, d);
@@ -77,7 +90,7 @@ function draw() {
                 case 7:
                     drawLine(a, d);
                     break;
-                case 8: 
+                case 8:
                     drawLine(a, d);
                     break;
                 case 9:
