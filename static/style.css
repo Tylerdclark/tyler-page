@@ -10,7 +10,6 @@ body {
     font-weight: 400;
     color: #2c3e50;
     background: #3c0260;
-
 }
 div {
     text-align: center;
@@ -23,7 +22,6 @@ h1 {
 }
 a {
     text-decoration: underline;
-    /*color: #c0392b;*/
     color: #2c3e50;
 }
 img {
@@ -33,25 +31,6 @@ img {
     border-radius: 100%;
     display: block;
 }
-
-.alert {
-    width: 100%;
-    padding: 10px;
-    background: #fff;
-    text-align: center;
-    animation: disappear 0.5s linear 2s 1;
-    animation-fill-mode: forwards;
-}
-@keyframes disappear {
-    0% {
-    }
-    100% {
-        height: 0px;
-        padding: 0px;
-        margin: 0px;
-        font-size: 0px;
-    }
-}
 .btn {
     text-decoration: none;
     border: none;
@@ -60,22 +39,9 @@ img {
     background: #a806ae;
     padding: 8px;
     font-size: 1rem;
-    /* height: 30px; */
     border-radius: 2px;
     cursor: pointer;
     display: inline;
-}
-#stop-btn {
-  background-color: red;
-}
-.btn:active {
-    border-bottom: none;
-    position: relative;
-    top: 4px;
-}
-.spacer {
-    clear: both;
-    height: 10px;
 }
 input {
     font-family: "Source Code Pro", sans-serif;
@@ -125,36 +91,46 @@ textarea {
 }
 .flip .card.flipped {
     -webkit-transform: rotatey(-180deg);
+    transform: rotatey(-180deg);
 }
 .flip .card {
     width: 100%;
     height: 100%;
     -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     -webkit-transition: 0.5s;
+    transition: 0.5s;
 }
 .flip .card .face {
     width: 100%;
     height: 100%;
     position: absolute;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     z-index: 2;
 }
 .flip .card .front {
     position: absolute;
     z-index: 1;
-    /* style for front of card*/
     background: #fff;
     padding: 10px;
     border-radius: 3px;
 }
 .flip .card .back {
     -webkit-transform: rotatey(-180deg);
-    /* style for back of card */
+    transform: rotatey(-180deg);
     background: #fff;
     padding: 10px;
     border-radius: 3px;
 }
-
+#stop-btn {
+    background-color: red;
+}
+.btn:active {
+    border-bottom: none;
+    position: relative;
+    top: 4px;
+}
 @media only screen and (max-width: 480px) {
     .flip .card .back,
     .flip .card .front {
